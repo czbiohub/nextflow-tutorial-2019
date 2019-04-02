@@ -56,8 +56,8 @@ Now we can see that the `--name` and `--description` fields are required. Here's
 ```
 nf-core create --name pipelinename --description "pipeline description"
 ```
- 
-![nf-core create example output](figures/nf-core-create.gif) 
+
+![nf-core create example output](figures/nf-core-create.gif)
 
 Here's the example output:
 ```
@@ -90,13 +90,17 @@ nf-core create --name largegenomeassembly --description "Assembly for large (1 g
 Note that pipeline names must be all lowercase and with no punctuation.
 
 
-
 https://nf-co.re/adding_pipelines
 
 
 ### Make a GitHub repository and push to GitHub
 
 Make a [new czbiohub GitHub repository](https://github.com/organizations/czbiohub/repositories/new) with your pipeline name. Enable Travis-CI and don't add any .gitignore or README because the template has it. Also, make it public :)
+
+Here's an example of the configuration:
+
+![Create github repository](figures/create-repository.gif)
+
 
 ### Test datasets
 
@@ -105,7 +109,15 @@ Nextflow developers have kindly curated test datasets in [nf-core/test-datasets]
 
 ### Enable Github Pages
 
-Turning on GitHub pages will create a little website out of the `docs/` folder in the repository. Here's an example using their defaults: https://czbiohub.github.io/nf-core-test/
+Turning on GitHub pages will create a little website out of the `docs/` folder in the repository.
+
+Go to the "Settings" tab on your repository and scroll down to "GitHub Pages." Here's an example configuration:
+
+![How to enable GitHub pages](figures/enable-github-pages.png)
+
+Here's a live example using their defaults: https://czbiohub.github.io/nf-core-test, and below is a static view:
+
+![Example GitHub pages](figures/example-github-pages.png)
 
 
 ### Add your pipeline to [czbiohub/awesome-nextflow](https://github.com/czbiohub/awesome-nextflow)
