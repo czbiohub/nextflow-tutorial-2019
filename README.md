@@ -1,5 +1,48 @@
+
 # nextflow-tutorial-2019
 Materials for the Nextflow tutorial held at Biohub on April 11th, 2019
+
+## Setup and prerequisites
+If you can do these ahead of time, power to you!
+
+### Install Nextflow
+
+(Cribbed from [nf-hack18](https://nextflow-io.github.io/nf-hack18/training.html))
+
+1. If you have anaconda installed, it is very simple:
+
+  ```
+  conda install nextflow
+  ```
+
+2. Check that everything worked with the following command:
+
+  ```
+  nextflow info
+  ```
+
+
+#### Optional: to directly download from SRA/ENA
+
+
+> Note: If you want to use the newly added feature to download directly from the US Sequence Read Archive (SRA) or European Nucleotide Archive (ENA), you will need Nextflow version 19.03-edge or greater.
+
+Otherwise, you can also use the bash scripts from the [SRA explorer](https://ewels.github.io/sra-explorer/#), upon which the new Nextflow feature is based, to get your fastq files from SRA/ENA.
+
+```
+wget https://github.com/nextflow-io/nextflow/releases/download/v19.03.0-edge/nextflow
+chmod ugo+x nextflow
+mv nextflow ~/bin
+nextflow info
+```
+
+### Clone the tutorial repo
+
+```
+git clone https://github.com/nextflow-io/nf-hack18
+cd nf-hack18
+```
+
 
 ## Schedule
 
@@ -56,8 +99,8 @@ Now we can see that the `--name` and `--description` fields are required. Here's
 ```
 nf-core create --name pipelinename --description "pipeline description"
 ```
- 
-![nf-core create example output](figures/nf-core-create.gif) 
+
+![nf-core create example output](figures/nf-core-create.gif)
 
 Here's the example output:
 ```
