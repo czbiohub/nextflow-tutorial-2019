@@ -112,6 +112,27 @@ Turning on GitHub pages will create a little website out of the `docs/` folder i
 
 We have our own internal Nextflow workflows enumerated at [czbiohub/awesome-nextflow](https://github.com/czbiohub/awesome-nextflow). There is also a more global [nextflow-io/awesome-nextflow](https://github.com/nextflow-io/awesome-nextflow) list of nextflow workflows you may want to check out before writing your own.
 
+
+### Running on AWS Batch
+
+To successfully run one's Nextflow workflow on
+[AWS Batch](https://aws.amazon.com/batch/), which will auto-scale and create instances as needed, shutting them down automatically as the jobs finish, add these lines to your `nextflow.config` file. This can either be your global `~/.nextflow/config` file or the one local to the repo, i.e. the `nextflow.config` file in the repo directory.
+
+```groovy
+process.executor = 'awsbatch'
+process.queue = 'nextflow'
+aws.region = 'us-west-2'
+```
+
+These can also be specified on the command line of a workflow run:
+
+```
+$ nextflow run main.nf \
+  -e.process.executor=awsbatch \
+  -e.process.queue=nextflow \
+  -e.aws.region=us-west-2
+```
+
 ## Examples of Nextflow pipelines and patterns
 
 ### Toy examples: [Nextflow patterns](https://github.com/nextflow-io/patterns)
