@@ -47,7 +47,7 @@ cd nf-hack18
 ## Schedule
 
 - 10am - 12pm - Learning
-  - We will work through Nextflow's awesome [beginner tutorial](https://nextflow-io.github.io/nf-hack18/training.html) together
+  - We will work through Nextflow's awesome [beginner tutorial](https://nextflow-io.github.io/nf-hack18/training.html) together. *Make sure you've cloned the [nf-hack](https://github.com/nextflow-io/nf-hack18) repo!*
 - 12pm - 1pm - Lunch (provided)
 - 1pm - 5pm - Hackathon
   - Convert some of your own workflows into Nextflow
