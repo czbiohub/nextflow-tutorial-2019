@@ -47,7 +47,8 @@ cd nf-hack18
 ## Schedule
 
 - 10am - 12pm - Learning
-  - We will work through Nextflow's awesome [beginner tutorial](https://nextflow-io.github.io/nf-hack18/training.html) together. *Make sure you've cloned the [nf-hack](https://github.com/nextflow-io/nf-hack18) repo!*
+  - We will work through Nextflow's awesome [beginner tutorial](https://nextflow-io.github.io/nf-hack18/training.html) together.  *Make sure you've cloned the [nf-hack](https://github.com/nextflow-io/nf-hack18) repo!*
+  - We'll focus on Sections 1-2 - "Installation" and "Simple Rna-Seq pipeline" in the morning
 - 12pm - 1pm - Lunch (provided)
 - 1pm - 5pm - Hackathon
   - Convert some of your own workflows into Nextflow
@@ -154,3 +155,90 @@ Turning on GitHub pages will create a little website out of the `docs/` folder i
 ### Add your pipeline to [czbiohub/awesome-nextflow](https://github.com/czbiohub/awesome-nextflow)
 
 We have our own internal Nextflow workflows enumerated at [czbiohub/awesome-nextflow](https://github.com/czbiohub/awesome-nextflow). There is also a more global [nextflow-io/awesome-nextflow](https://github.com/nextflow-io/awesome-nextflow) list of nextflow workflows you may want to check out before writing your own.
+
+## Examples of Nextflow pipelines and patterns
+
+### Toy examples: [Nextflow patterns](https://github.com/nextflow-io/patterns)
+
+> A curated collections of Nextflow implementation patterns
+
+These are toy/small examples showing Nextflow functionality for very basic
+examples, from the Nextflow developers. This is certainly *somewhat* helpful for getting started but very limited in scope  for more complicated situations.
+Here's some copy-pastable code for searching for example outputs. In this example, we're looking for how to make a program output values in addition to files by searching for `output:` and the 5 lines after it with `-A 5`.
+
+```
+git clone https://github.com/nextflow-io/patterns nextflow-io/patterns
+cd nextflow-io/patterns
+git grep -A 5 'output:' .
+```
+
+Here's the output:
+
+```
+collect-into-file.nf:  output:
+collect-into-file.nf-  file 'file.fq' into unzipped_ch
+collect-into-file.nf-  script:
+collect-into-file.nf-  """
+collect-into-file.nf-  < $x zcat > file.fq
+collect-into-file.nf-  """
+--
+conditional-process.nf:  output:
+conditional-process.nf-  file 'x.txt' into foo_ch
+conditional-process.nf-  when:
+conditional-process.nf-  !params.flag
+conditional-process.nf-
+conditional-process.nf-  script:
+--
+conditional-process.nf:  output:
+conditional-process.nf-  file 'x.txt' into bar_ch
+conditional-process.nf-  when:
+conditional-process.nf-  params.flag
+conditional-process.nf-
+conditional-process.nf-  script:
+... truncated ..
+```
+
+### Slightly more realistic: [`nextflow-demos`](https://github.com/stevekm/nextflow-demos)
+
+> Example Nextflow pipelines and programming techniques
+
+This is a curated list of example Nextflow pipelines maintained by non-Nextflow developers which can be helpful. Again, we're looking for ways to have multiple outputs from a single process.
+
+```
+git clone https://github.com/stevekm/nextflow-demos
+cd nextflow-demos
+git grep -A 5 'output:' .
+```
+
+Output:
+```
+LaTeX-aggregate/main.nf:    output:
+LaTeX-aggregate/main.nf-    file("texput.pdf") into pdfs
+LaTeX-aggregate/main.nf-
+LaTeX-aggregate/main.nf-    script:
+LaTeX-aggregate/main.nf-    """
+LaTeX-aggregate/main.nf-    echo '\\shipout\\hbox{${word}}\\end' | pdftex
+--
+LaTeX-aggregate/main.nf:    output:
+LaTeX-aggregate/main.nf-    file("report.pdf")
+LaTeX-aggregate/main.nf-
+LaTeX-aggregate/main.nf-    script:
+LaTeX-aggregate/main.nf-    """
+LaTeX-aggregate/main.nf-    pdflatex "${report}"
+--
+aggregate-db-report/people.nf:    output:
+aggregate-db-report/people.nf-    set val(name), val(url), file("${output}") into people_pics
+aggregate-db-report/people.nf-
+aggregate-db-report/people.nf-    script:
+aggregate-db-report/people.nf-    output = "${name}.jpg"
+aggregate-db-report/people.nf-    """
+... truncated ...
+```
+
+
+### Awesome Nextflow
+
+There's a few places you can look for curated lists of Nextflow workflows as inspiration for your own workflows.
+
+- [nextflow-io/awesome-nextflow](https://github.com/nextflow-io/awesome-nextflow)
+- Internal Biohub workflows: [czbiohub/awesome-nextflow](https://github.com/czbiohub/awesome-nextflow)
