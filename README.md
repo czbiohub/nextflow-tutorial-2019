@@ -13,6 +13,60 @@ Materials for the Nextflow tutorial held at Biohub on April 11th, 2019
 - 1pm - 5pm - Hackathon
   - Convert some of your own workflows into Nextflow
   - If you don't have anything ready yet, you can do the [more advanced](https://nextflow-io.github.io/nf-hack18/handson.html) Nextflow tutorial
+  
+  
+## Setup and Installation
+
+### Java via OpenJDK
+
+Nextflow requires Java 8 or greater to be installed. Try this command:
+
+```
+java -version
+```
+
+This is what I see:
+
+```
+ Wed 10 Apr - 17:27  ~/code/nextflow-tutorial-2019   origin ☊ master ✔ 1☀ 
+  java -version
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+```
+
+This counts as 8 or greater because turns out that [1.8 = 8](https://docs.oracle.com/javase/1.5.0/docs/relnotes/version-5.0.html) in Java land.
+
+If you have [homebrew](https://brew.sh/) installed, installing Java is a single command:
+
+```
+brew cask install java
+```
+
+### Nextflow
+
+Once you have Java, you can install Nextflow with this command:
+
+```
+curl -s https://get.nextflow.io | bash 
+```
+
+This will download a binary executable file `nextflow` to your current directory. You probably want to move it to a binaries folder on your `$PATH`, e.g.
+
+```
+mv nextflow $HOME/bin
+```
+
+
+### Docker on your laptop
+
+To enable testing your pipelines locally on your laptop, install [Docker](https://download.docker.com/mac/stable/Docker.dmg) (link downloads the Docker.dmg). This will let you make sure that the containers build correctly and 
+
+
+### Atom editor + Nextflow syntax highlighting
+
+[Atom](https://atom.io/) is a great editor from GitHub that supports many languages, including [Nextflow syntax highlighting](https://atom.io/packages/language-nextflow). There is also a [Sublime Text](https://packagecontrol.io/packages/nextflow) package (not as well supported) and a [Visual Studio](https://marketplace.visualstudio.com/itemdetails?itemName=nextflow.nextflow) package.
+
 
 ## Creating your own Nextflow Workflow
 
@@ -20,11 +74,17 @@ Use [cookiecutter-nextflow](https://github.com/czbiohub/cookiecutter-nextflow) t
 
 We'll use the nextflow-core (nf-core) developers excellent template. Please also check out their [pipeline creation guidelines](https://nf-co.re/adding_pipelines) for more info on writing good pipelines.
 
-### 0. Install [`nf-core/tools`](https://github.com/nf-core/tools)
+
+
+### 0. Setup and Installation [`nf-core/tools`](https://github.com/nf-core/tools)
+
+#### 
 
 ```
 pip install nf-core
 ```
+
+
 
 ### 1. Create a pipeline template with `nf-core create`
 
