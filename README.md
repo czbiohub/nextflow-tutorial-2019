@@ -60,6 +60,123 @@ cd nf-hack18
 - 1pm - 5pm - Hackathon
   - Convert some of your own workflows into Nextflow
   - If you don't have anything ready yet, you can do the [more advanced](https://nextflow-io.github.io/nf-hack18/handson.html) Nextflow tutorial
+  
+  
+## Setup and Installation
+
+
+
+### Docker on your laptop
+
+To enable testing your pipelines locally on your laptop, install [Docker](https://download.docker.com/mac/stable/Docker.dmg) (link downloads the Docker.dmg). This will let you make sure that the containers build correctly and run pipelines on your laptop, if they fit there.
+
+Check that it worked with:
+
+```
+docker run hello-world
+```
+
+The output should look something like this:
+
+```
+ ✘  Wed 10 Apr - 17:43  ~/Downloads 
+  docker run hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://cloud.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/engine/userguide/
+```
+
+
+### Atom editor + Nextflow syntax highlighting
+
+[Atom](https://atom.io/) is a great editor from GitHub that supports many languages, including [Nextflow syntax highlighting](https://atom.io/packages/language-nextflow). There is also a [Sublime Text](https://packagecontrol.io/packages/nextflow) package (not as well supported) and a [Visual Studio](https://marketplace.visualstudio.com/itemdetails?itemName=nextflow.nextflow) package.
+
+
+
+### OPTIONAL - for bleeding edge versions of Nextflow - Java via OpenJDK
+
+Nextflow requires Java 8 or greater to be installed. Try this command:
+
+```
+java -version
+```
+
+This is what I see:
+
+```
+ Wed 10 Apr - 17:27  ~/code/nextflow-tutorial-2019   origin ☊ master ✔ 1☀ 
+  java -version
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+```
+
+This counts as 8 or greater because turns out that [1.8 = 8](https://docs.oracle.com/javase/1.5.0/docs/relnotes/version-5.0.html) in Java land.
+
+If you have [homebrew](https://brew.sh/) installed, installing Java is a single command:
+
+```
+brew cask install java
+```
+
+### OPTIONAL - for SRA support - Nextflow 19.03-edge
+
+> If you're on the bleeding edge, chances are you're gonna get cut - @olgabot
+
+If you want access to the [petabytes of data](https://www.ncbi.nlm.nih.gov/sra/docs/sragrowth/) available on SRA, you'll want to try out their experimental `Channel.fromSRA` function, which is only available in Nextflow [v19.03-edge](https://github.com/nextflow-io/nextflow/releases/tag/v19.03.0-edge) or greater.
+
+Once you have Java, you can download Nextflow v19.03-edge with this command:
+
+```
+wget https://github.com/nextflow-io/nextflow/releases/download/v19.03.0-edge/nextflow
+```
+
+This will download a binary file `nextflow` to your current directory. You need to add executable permissions with `chmod` and probably want to move it to a binaries folder on your `$PATH`, e.g.
+
+```
+chmod ugo+x nextflow
+mv nextflow ~/bin
+```
+
+Test that it worked by running the `hello world` example:
+
+```
+nextflow run hello
+```
+
+The output should look something like this:
+
+```
+ ✘  Wed 10 Apr - 17:43  ~ 
+  nextflow run hello
+N E X T F L O W  ~  version 19.03.0-edge
+Launching `nextflow-io/hello` [compassionate_galileo] - revision: a9012339ce [master]
+executor >  local (4)
+[ba/c421b7] process > sayHello [100%] 4 of 4 ✔
+Completed at: 10-Apr-2019 17:44:40
+Duration    : 724ms
+CPU hours   : (a few seconds)
+Succeeded   : 4
+```
+
 
 ## Creating your own Nextflow Workflow
 
@@ -67,11 +184,15 @@ Use [cookiecutter-nextflow](https://github.com/czbiohub/cookiecutter-nextflow) t
 
 We'll use the nextflow-core (nf-core) developers excellent template. Please also check out their [pipeline creation guidelines](https://nf-co.re/adding_pipelines) for more info on writing good pipelines.
 
+
+
 ### 0. Install [`nf-core/tools`](https://github.com/nf-core/tools)
 
 ```
 pip install nf-core
 ```
+
+
 
 ### 1. Create a pipeline template with `nf-core create`
 
