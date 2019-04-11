@@ -17,67 +17,6 @@ Materials for the Nextflow tutorial held at Biohub on April 11th, 2019
   
 ## Setup and Installation
 
-### Java via OpenJDK
-
-Nextflow requires Java 8 or greater to be installed. Try this command:
-
-```
-java -version
-```
-
-This is what I see:
-
-```
- Wed 10 Apr - 17:27  ~/code/nextflow-tutorial-2019   origin ☊ master ✔ 1☀ 
-  java -version
-java version "1.8.0_131"
-Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
-Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
-```
-
-This counts as 8 or greater because turns out that [1.8 = 8](https://docs.oracle.com/javase/1.5.0/docs/relnotes/version-5.0.html) in Java land.
-
-If you have [homebrew](https://brew.sh/) installed, installing Java is a single command:
-
-```
-brew cask install java
-```
-
-### Nextflow
-
-Once you have Java, you can install Nextflow with this command:
-
-```
-curl -s https://get.nextflow.io | bash 
-```
-
-This will download a binary executable file `nextflow` to your current directory. You probably want to move it to a binaries folder on your `$PATH`, e.g.
-
-```
-mv nextflow $HOME/bin
-```
-
-Test that it worked by running the `hello world` example:
-
-```
-nextflow run hello
-```
-
-The output should look something like this:
-
-```
- ✘  Wed 10 Apr - 17:43  ~ 
-  nextflow run hello
-N E X T F L O W  ~  version 19.03.0-edge
-Launching `nextflow-io/hello` [compassionate_galileo] - revision: a9012339ce [master]
-executor >  local (4)
-[ba/c421b7] process > sayHello [100%] 4 of 4 ✔
-Completed at: 10-Apr-2019 17:44:40
-Duration    : 724ms
-CPU hours   : (a few seconds)
-Succeeded   : 4
-```
-
 
 
 ### Docker on your laptop
@@ -122,6 +61,74 @@ For more examples and ideas, visit:
 ### Atom editor + Nextflow syntax highlighting
 
 [Atom](https://atom.io/) is a great editor from GitHub that supports many languages, including [Nextflow syntax highlighting](https://atom.io/packages/language-nextflow). There is also a [Sublime Text](https://packagecontrol.io/packages/nextflow) package (not as well supported) and a [Visual Studio](https://marketplace.visualstudio.com/itemdetails?itemName=nextflow.nextflow) package.
+
+
+
+### OPTIONAL - for bleeding edge versions of Nextflow - Java via OpenJDK
+
+Nextflow requires Java 8 or greater to be installed. Try this command:
+
+```
+java -version
+```
+
+This is what I see:
+
+```
+ Wed 10 Apr - 17:27  ~/code/nextflow-tutorial-2019   origin ☊ master ✔ 1☀ 
+  java -version
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+```
+
+This counts as 8 or greater because turns out that [1.8 = 8](https://docs.oracle.com/javase/1.5.0/docs/relnotes/version-5.0.html) in Java land.
+
+If you have [homebrew](https://brew.sh/) installed, installing Java is a single command:
+
+```
+brew cask install java
+```
+
+### OPTIONAL - for SRA support - Nextflow 19.03-edge
+
+> If you're on the bleeding edge, chances are you're gonna get cut - @olgabot
+
+If you want access to the [petabytes of data](https://www.ncbi.nlm.nih.gov/sra/docs/sragrowth/) available on SRA, you'll want to try out their experimental `Channel.fromSRA` function, which is only available in Nextflow [v19.03-edge](https://github.com/nextflow-io/nextflow/releases/tag/v19.03.0-edge) or greater.
+
+Once you have Java, you can download Nextflow v19.03-edge with this command:
+
+```
+wget https://github.com/nextflow-io/nextflow/releases/download/v19.03.0-edge/nextflow
+```
+
+This will download a binary file `nextflow` to your current directory. You need to add executable permissions with `chmod` and probably want to move it to a binaries folder on your `$PATH`, e.g.
+
+```
+chmod ugo+x nextflow
+mv nextflow ~/bin
+```
+
+Test that it worked by running the `hello world` example:
+
+```
+nextflow run hello
+```
+
+The output should look something like this:
+
+```
+ ✘  Wed 10 Apr - 17:43  ~ 
+  nextflow run hello
+N E X T F L O W  ~  version 19.03.0-edge
+Launching `nextflow-io/hello` [compassionate_galileo] - revision: a9012339ce [master]
+executor >  local (4)
+[ba/c421b7] process > sayHello [100%] 4 of 4 ✔
+Completed at: 10-Apr-2019 17:44:40
+Duration    : 724ms
+CPU hours   : (a few seconds)
+Succeeded   : 4
+```
 
 
 ## Creating your own Nextflow Workflow
