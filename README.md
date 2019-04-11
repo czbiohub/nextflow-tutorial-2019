@@ -12,7 +12,7 @@ If you can do these ahead of time, power to you!
 1. If you have anaconda installed, it is very simple:
 
   ```
-  conda install nextflow
+  conda install -c bioconda nextflow
   ```
 
 2. Check that everything worked with the following command:
