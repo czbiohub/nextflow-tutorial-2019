@@ -57,10 +57,66 @@ This will download a binary executable file `nextflow` to your current directory
 mv nextflow $HOME/bin
 ```
 
+Test that it worked by running the `hello world` example:
+
+```
+nextflow run hello
+```
+
+The output should look something like this:
+
+```
+ ✘  Wed 10 Apr - 17:43  ~ 
+  nextflow run hello
+N E X T F L O W  ~  version 19.03.0-edge
+Launching `nextflow-io/hello` [compassionate_galileo] - revision: a9012339ce [master]
+executor >  local (4)
+[ba/c421b7] process > sayHello [100%] 4 of 4 ✔
+Completed at: 10-Apr-2019 17:44:40
+Duration    : 724ms
+CPU hours   : (a few seconds)
+Succeeded   : 4
+```
+
+
 
 ### Docker on your laptop
 
-To enable testing your pipelines locally on your laptop, install [Docker](https://download.docker.com/mac/stable/Docker.dmg) (link downloads the Docker.dmg). This will let you make sure that the containers build correctly and 
+To enable testing your pipelines locally on your laptop, install [Docker](https://download.docker.com/mac/stable/Docker.dmg) (link downloads the Docker.dmg). This will let you make sure that the containers build correctly and run pipelines on your laptop, if they fit there.
+
+Check that it worked with:
+
+```
+docker run hello-world
+```
+
+The output should look something like this:
+
+```
+ ✘  Wed 10 Apr - 17:43  ~/Downloads 
+  docker run hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://cloud.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/engine/userguide/
+```
 
 
 ### Atom editor + Nextflow syntax highlighting
