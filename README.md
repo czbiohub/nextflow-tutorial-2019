@@ -27,20 +27,10 @@ If you can do these ahead of time, power to you!
   nextflow run hello
   ```
 
-
-#### Optional: to directly download from SRA/ENA
-
-
-> Note: If you want to use the newly added feature to download directly from the US Sequence Read Archive (SRA) or European Nucleotide Archive (ENA), you will need Nextflow version 19.03-edge or greater.
+> Note: If you want to use the newly added feature to download directly from the US Sequence Read Archive (SRA) or European Nucleotide Archive (ENA), you will need [Nextflow version 19.03-edge](#OPTIONAL) or greater.
 
 Otherwise, you can also use the bash scripts from the [SRA explorer](https://ewels.github.io/sra-explorer/#), upon which the new Nextflow feature is based, to get your fastq files from SRA/ENA.
 
-```
-wget https://github.com/nextflow-io/nextflow/releases/download/v19.03.0-edge/nextflow
-chmod ugo+x nextflow
-mv nextflow ~/bin
-nextflow info
-```
 
 ### Clone the tutorial repo
 
@@ -111,7 +101,9 @@ For more examples and ideas, visit:
 
 
 
-### OPTIONAL - for bleeding edge versions of Nextflow - Java via OpenJDK
+### OPTIONAL: to directly download from SRA/ENA
+
+#### For bleeding edge versions of Nextflow - Java via OpenJDK
 
 Nextflow requires Java 8 or greater to be installed. Try this command:
 
@@ -137,7 +129,8 @@ If you have [homebrew](https://brew.sh/) installed, installing Java is a single 
 brew cask install java
 ```
 
-### OPTIONAL - for SRA support - Nextflow 19.03-edge
+#### Nextflow 19.03-edge
+
 
 > If you're on the bleeding edge, chances are you're gonna get cut - @olgabot
 
