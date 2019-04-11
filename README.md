@@ -27,7 +27,7 @@ If you can do these ahead of time, power to you!
   nextflow run hello
   ```
 
-> Note: If you want to use the newly added feature to download directly from the US Sequence Read Archive (SRA) or European Nucleotide Archive (ENA), you will need [Nextflow version 19.03-edge](#OPTIONAL) or greater.
+> Note: If you want to use the newly added feature to download directly from the US Sequence Read Archive (SRA) or European Nucleotide Archive (ENA), you will need [Nextflow version 19.03-edge](#optional-to-directly-download-from-sraena) or greater.
 
 Otherwise, you can also use the bash scripts from the [SRA explorer](https://ewels.github.io/sra-explorer/#), upon which the new Nextflow feature is based, to get your fastq files from SRA/ENA.
 
