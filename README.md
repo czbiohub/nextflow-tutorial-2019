@@ -382,7 +382,7 @@ There's a few places you can look for curated lists of Nextflow workflows as ins
 
 ### What if you have inputs that are implicitly needed but the program doesn't use them directly?
 
-If you create an output from a nextflow step that is used impliclity by other step, how do you ensure that they run in the correct order. An example of this problems is creating indexes from a reference. Most bioinformatics tools take the path to the reference and then implicitly look for a similarly named index file. If such a step runs before the index file is created it will fail. In order to make sure that a step with implicit dependencies runs after previous steps you just include them in the input section:
+If you create an output from a nextflow step that is used impliclity by another step, how do you ensure that they run in the correct order? An example of this problem is creating indexes from a reference. Most bioinformatics tools take the path to the reference and then implicitly look for a similarly named index file. If such a step runs before the index file is created it will fail. In order to make sure that a step with implicit dependencies runs after previous steps you just include them in the input section:
 
 ```
 process haplotype_caller {
@@ -405,7 +405,7 @@ This will ensure that all of the input files are present and if a previous step 
 
 ### Saving output results to s3
 
-What is you want to sync your output results to s3?
+What if you want to sync your output directory to s3?
 
 ```
 process haplotype_caller {
@@ -421,7 +421,7 @@ process haplotype_caller {
 	haplotype_caller -R ${reference} -O ${grouped_bam}.vcf
 	"""
 ```
- The new addition here is the line `publishDir "${params.output_path}/${params.sample_id}", mode: 'copy' , overwrite: true` which will sync the result to s3 if you provide a `params.output_path` value to the s3 bucket you want to save results to.
+ The new addition here is the line `publishDir "${params.output_path}/${params.sample_id}", mode: 'copy' , overwrite: true` which will sync the results to s3 if you provide a `params.output_path` value to the s3 bucket you want to save results to.
 
  For example let's say that we ran with:
  ```
