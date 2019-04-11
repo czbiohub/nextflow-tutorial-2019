@@ -44,6 +44,7 @@ cd nf-hack18
 ## Schedule
 
 - 10am - 12pm - Learning
+  - Brief presentation introducing workflow management and Nextflow ([slides](https://docs.google.com/presentation/d/1qAR7g4W43eASuTyQ3Q-fRPtQuiEkVnnU-MYv1cvzLyg/edit?usp=sharing))
   - We will work through Nextflow's awesome [beginner tutorial](https://nextflow-io.github.io/nf-hack18/training.html) together.  *Make sure you've cloned the [nf-hack](https://github.com/nextflow-io/nf-hack18) repo!*
   - We'll focus on Sections 1-2 - "Installation" and "Simple Rna-Seq pipeline" in the morning
 - 12pm - 1pm - Lunch (provided)
