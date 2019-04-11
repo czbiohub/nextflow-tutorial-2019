@@ -132,9 +132,7 @@ We'll use the nextflow-core (nf-core) developers excellent template. Please also
 
 
 
-### 0. Setup and Installation [`nf-core/tools`](https://github.com/nf-core/tools)
-
-#### 
+### 0. Install [`nf-core/tools`](https://github.com/nf-core/tools)
 
 ```
 pip install nf-core
