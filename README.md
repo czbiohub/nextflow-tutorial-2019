@@ -1,6 +1,9 @@
 # nextflow-tutorial-2019
 Materials for the Nextflow tutorial held at Biohub on April 11th, 2019
 
+[TOC]: # "Table of Contents"
+
+
 ## Schedule
 
 - 10am - 12pm - Learning
@@ -17,13 +20,13 @@ Use [cookiecutter-nextflow](https://github.com/czbiohub/cookiecutter-nextflow) t
 
 We'll use the nextflow-core (nf-core) developers excellent template. Please also check out their [pipeline creation guidelines](https://nf-co.re/adding_pipelines) for more info on writing good pipelines.
 
-### Install [`nf-core/tools`](https://github.com/nf-core/tools)
+### 0. Install [`nf-core/tools`](https://github.com/nf-core/tools)
 
 ```
 pip install nf-core
 ```
 
-### Create a pipeline template with `nf-core create`
+### 1. Create a pipeline template with `nf-core create`
 
 Check out the documentation for `nf-core create`:
 
@@ -94,13 +97,13 @@ Note that pipeline names must be all lowercase and with no punctuation.
 https://nf-co.re/adding_pipelines
 
 
-### Make a GitHub repository and push to GitHub
+### 2. Make a GitHub repository and push to GitHub
 
 Make a [new czbiohub GitHub repository](https://github.com/organizations/czbiohub/repositories/new) with your pipeline name. Enable Travis-CI and don't add any .gitignore or README because the template has it. Also, make it public :)
 
 Here's an example of the configuration:
 
-![Create github repository](figures/create-repository.gif)
+![Create github repository](figures/create-repository.png)
 
 
 ### Test datasets
@@ -108,7 +111,7 @@ Here's an example of the configuration:
 Nextflow developers have kindly curated test datasets in [nf-core/test-datasets](https://github.com/nf-core/test-datasets/). If that doesn't have what you want, aggressively downsample your data e.g. down to 1% of the input reads, or just one chromosome.
 
 
-### Enable Github Pages
+### 4. Enable Github Pages
 
 Turning on GitHub pages will create a little website out of the `docs/` folder in the repository.
 
@@ -121,7 +124,7 @@ Here's a live example using their defaults: https://czbiohub.github.io/nf-core-t
 ![Example GitHub pages](figures/example-github-pages.png)
 
 
-### Add your pipeline to [czbiohub/awesome-nextflow](https://github.com/czbiohub/awesome-nextflow)
+### 5. Add your pipeline to [czbiohub/awesome-nextflow](https://github.com/czbiohub/awesome-nextflow)
 
 We have our own internal Nextflow workflows enumerated at [czbiohub/awesome-nextflow](https://github.com/czbiohub/awesome-nextflow). There is also a more global [nextflow-io/awesome-nextflow](https://github.com/nextflow-io/awesome-nextflow) list of nextflow workflows you may want to check out before writing your own.
 
