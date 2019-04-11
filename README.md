@@ -5,6 +5,7 @@ Materials for the Nextflow tutorial held at Biohub on April 11th, 2019
 
 - 10am - 12pm - Learning
   - We will work through Nextflow's awesome [beginner tutorial](https://nextflow-io.github.io/nf-hack18/training.html) together
+  - We'll focus on Sections 1-2 - "Installation" and "Simple Rna-Seq pipeline" in the morning
 - 12pm - 1pm - Lunch (provided)
 - 1pm - 5pm - Hackathon
   - Convert some of your own workflows into Nextflow
