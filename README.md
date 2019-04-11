@@ -132,7 +132,7 @@ brew cask install java
 #### Nextflow 19.03-edge
 
 
-> If you're on the bleeding edge, chances are you're gonna get cut - @olgabot
+> If you're on the bleeding edge, you're gonna get cut - @olgabot
 
 If you want access to the [petabytes of data](https://www.ncbi.nlm.nih.gov/sra/docs/sragrowth/) available on SRA, you'll want to try out their experimental `Channel.fromSRA` function, which is only available in Nextflow [v19.03-edge](https://github.com/nextflow-io/nextflow/releases/tag/v19.03.0-edge) or greater.
 
