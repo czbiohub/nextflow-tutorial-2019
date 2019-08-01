@@ -174,7 +174,7 @@ Succeeded   : 4
 
 ## Creating your own Nextflow Workflow
 
-Use [cookiecutter-nextflow](https://github.com/czbiohub/cookiecutter-nextflow) to create a template folder with example nextflow workflows. Make sure to add your GitHub repo to [czbiohub/awesome-nextflow](https://github.com/czbiohub/awesome-nextflow)!
+~~Use [cookiecutter-nextflow](https://github.com/czbiohub/cookiecutter-nextflow) to create a template folder with example nextflow workflows.~~ Use [`nf-core/tools`](https://github.com/nf-core/tools) to create your nextflow workflow. Highly recommended to *not* write your workflow from scratch as there is quite a bit of boilerplate that is necessary to make it function smoothly, e.g. on AWS. Make sure to add your GitHub repo to [czbiohub/awesome-nextflow](https://github.com/czbiohub/awesome-nextflow)!
 
 We'll use the nextflow-core (nf-core) developers excellent template. Please also check out their [pipeline creation guidelines](https://nf-co.re/adding_pipelines) for more info on writing good pipelines.
 
