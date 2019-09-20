@@ -376,3 +376,56 @@ There's a few places you can look for curated lists of Nextflow workflows as ins
 
 - [nextflow-io/awesome-nextflow](https://github.com/nextflow-io/awesome-nextflow)
 - Internal Biohub workflows: [czbiohub/awesome-nextflow](https://github.com/czbiohub/awesome-nextflow)
+
+
+## Misc
+
+### What if you have inputs that are implicitly needed but the program doesn't use them directly?
+
+If you create an output from a nextflow step that is used impliclity by another step, how do you ensure that they run in the correct order? An example of this problem is creating indexes from a reference. Most bioinformatics tools take the path to the reference and then implicitly look for a similarly named index file. If such a step runs before the index file is created it will fail. In order to make sure that a step with implicit dependencies runs after previous steps you just include them in the input section:
+
+```
+process haplotype_caller {
+	input:
+	file grouped_bam
+	file indexed_bam
+	file reference
+	file reference_index
+	file reference_dict
+
+	output:
+	file "${grouped_bam}.vcf" into vcf_file
+
+	"""
+	haplotype_caller -R ${reference} -O ${grouped_bam}.vcf
+	"""
+```
+
+This will ensure that all of the input files are present and if a previous step creates one of them, it will ensure that it gets run first.
+
+### Saving output results to s3
+
+What if you want to sync your output directory to s3?
+
+```
+process haplotype_caller {
+	publishDir "${params.output_path}/${params.sample_id}", mode: 'copy' , overwrite: true
+
+	input:
+	file reference
+
+	output:
+	file "${grouped_bam}.vcf" into vcf_file
+
+	"""
+	haplotype_caller -R ${reference} -O ${grouped_bam}.vcf
+	"""
+```
+ The new addition here is the line `publishDir "${params.output_path}/${params.sample_id}", mode: 'copy' , overwrite: true` which will sync the results to s3 if you provide a `params.output_path` value to the s3 bucket you want to save results to.
+
+ For example let's say that we ran with:
+ ```
+ nextflow run my_workflow.nf --output_path s3://path-to-s3-bucket --sample_id test_sample_id
+ ```
+then the results would be synced to `s3://path-to-s3-bucket/test_sample_id`.
+
